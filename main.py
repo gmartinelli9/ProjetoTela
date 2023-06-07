@@ -1,6 +1,7 @@
-import pygame
-import winsound
-import random
+import pygame #importa pygame
+import time #importa tempo
+import winsound #importa som
+import random #importa lugares aleatórios do objeto
 
 pygame.init()
 tamanho = (800,600)
@@ -11,13 +12,13 @@ tela = pygame.display.set_mode(tamanho)
 running = True
 posicaoXBolinha = 0
 posicaoYBolinha = 300
-velocidadeBolinha = 1
+velocidadeBolinha = 5
 direita = True
 while running:  
     for evento in pygame.event.get():
         if evento.type == pygame.QUIT:
             running = False
-        elif evento.type == pygame.KEYDOWN and evento.key == pygame.escape:
+        elif evento.type == pygame.KEYDOWN and evento.key == pygame.K_ESCAPE:
             running = False
 
     tela.fill(branco)
@@ -26,7 +27,7 @@ while running:
     if posicaoXBolinha >=800:
         direita = False
         velocidadeBolinha = velocidadeBolinha +1
-        posicaoYBolinha = ramdom.randint (0,600)
+        posicaoYBolinha = random.randint (0,600)
         winsound.Beep(500,300)
     elif posicaoXBolinha <=0:
         direita = True
